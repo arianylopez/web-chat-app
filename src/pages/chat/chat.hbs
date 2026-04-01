@@ -1,0 +1,76 @@
+<div class="chat-layout">
+  <aside class="chat-layout__sidebar">
+    <div class="chat-layout__sidebar-header">
+      <a href="#" id="go-to-profile" class="chat-layout__profile-link">Perfil &gt;</a>
+      <div class="chat-layout__search-container">
+        <input type="text" class="chat-layout__search-input" placeholder="Buscar">
+        <span class="chat-layout__search-icon">🔍</span>
+      </div>
+    </div>
+    
+    <ul class="chat-layout__list">
+      {{#each chats}}
+        <li class="chat-item {{#if active}}chat-item--active{{/if}}">
+          <div class="chat-item__avatar-container">
+            {{#if avatar}}
+              <img src="{{avatar}}" alt="Avatar de {{name}}" class="chat-item__avatar-img">
+            {{else}}
+              <div class="chat-item__avatar-placeholder"></div>
+            {{/if}}
+          </div>
+          <div class="chat-item__content">
+            <div class="chat-item__header">
+              <span class="chat-item__name">{{name}}</span>
+              <span class="chat-item__time">{{time}}</span>
+            </div>
+            <div class="chat-item__body">
+              <span class="chat-item__preview">
+                {{#if yourMessage}}<span class="chat-item__you-label">Tú: </span>{{/if}}
+                {{lastMessage}}
+              </span>
+              {{#if unreadCount}}
+                <span class="chat-item__badge">{{unreadCount}}</span>
+              {{/if}}
+            </div>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </aside>
+
+  <main class="chat-layout__main">
+    {{#if activeChat}}
+      <header class="chat-layout__chat-header">
+        <div class="chat-layout__chat-header-info">
+          <div class="chat-item__avatar-placeholder chat-item__avatar-placeholder--header"></div>
+          <div class="chat-item__name">{{activeChat.name}}</div>
+        </div>
+        <button class="chat-layout__btn-icon">⋮</button>
+      </header>
+
+      <div class="chat-layout__messages">
+        {{#each activeChat.messages}}
+          <div class="message-bubble message-bubble--{{type}}">
+            <div class="message-bubble__text">{{content}}</div>
+            <span class="message-bubble__time">{{time}}</span>
+          </div>
+        {{/each}}
+      </div>
+
+      <form class="chat-layout__footer" id="message-form">
+        <button type="button" class="chat-layout__btn-icon">📎</button>
+        <div class="chat-layout__message-input-container">
+          <input type="text" name="message" class="chat-layout__message-input" placeholder="Escribir mensaje..." required>
+        </div>
+        <button type="submit" class="chat-layout__btn-icon chat-layout__btn-icon--primary">→</button>
+      </form>
+    {{else}}
+      <div class="chat-layout__empty-state">
+        <div class="chat-layout__empty-state-content">
+          <div class="chat-layout__empty-state-img"></div>
+          <p class="chat-layout__empty-state-text">Elige un chat para enviar un mensaje</p>
+        </div>
+      </div>
+    {{/if}}
+  </main>
+</div>

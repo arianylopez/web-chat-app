@@ -1,0 +1,299 @@
+.chat-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-main);
+  overflow: hidden;
+
+  &__sidebar {
+    width: 310px; 
+    background-color: var(--color-bg-card);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__sidebar-header {
+    padding: 10px 10px 20px 10px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__profile-link {
+    align-self: flex-end;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__search-container {
+    position: relative;
+    width: 100%;
+  }
+
+  &__search-input {
+    width: 100%;
+    padding: 10px 15px 10px 35px; 
+    background-color: #f1f1f1; 
+    border: none;
+    border-radius: 30px; 
+    font-size: 13px;
+    outline: none;
+    color: var(--color-text-main);
+
+    &::placeholder {
+      color: var(--color-text-muted);
+      text-align: center; 
+    }
+  }
+
+  &__search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    font-size: 12px;
+  }
+
+  &__list {
+    flex: 1;
+    overflow-y: auto;
+    list-style: none;
+  }
+
+  &__main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-main);
+  }
+
+  &__empty-state {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__empty-state-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__empty-state-img {
+    width: 100px;
+    height: 100px;
+    background-image: url('../../assets/Union.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__empty-state-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-main);
+  }
+
+  &__chat-header {
+    padding: 10px 20px;
+    background-color: var(--color-bg-card);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__chat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__footer {
+    padding: 10px 20px;
+    background-color: var(--color-bg-card);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__message-input-container {
+    flex: 1;
+    position: relative;
+  }
+
+  &__message-input {
+    width: 100%;
+    border: none;
+    background-color: var(--color-bg-main);
+    padding: 12px 15px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    color: var(--color-text-main);
+  }
+
+  &__btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--color-text-muted);
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+
+    &--primary {
+      color: var(--color-primary);
+      
+      &:hover {
+        color: var(--color-primary-hover);
+      }
+    }
+  }
+}
+
+.chat-item {
+  display: flex;
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+
+  &--active {
+    background-color: #e3f2fd; 
+  }
+
+  &__avatar-placeholder {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #dadada; 
+    margin-right: 12px;
+    overflow: hidden;
+
+    &--header {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  &__avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+
+  &__name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-main);
+  }
+
+  &__time {
+    font-size: 10px;
+    color: var(--color-text-muted);
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__preview {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__you-label {
+    color: var(--color-text-main);
+  }
+
+  &__badge {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 3px 7px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+}
+
+.message-bubble {
+  max-width: 60%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  position: relative;
+
+  &--in {
+    align-self: flex-start;
+    background-color: #f8f8f8; 
+    border: 1px solid var(--color-border);
+    border-bottom-left-radius: 0;
+    color: var(--color-text-main);
+  }
+
+  &--out {
+    align-self: flex-end;
+    background-color: #e3f2fd;
+    border-bottom-right-radius: 0;
+    color: var(--color-text-main);
+  }
+
+  &__time {
+    font-size: 10px;
+    color: var(--color-text-muted);
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+  }
+}
