@@ -1,0 +1,32 @@
+.error-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg-main);
+
+  &__code {
+    font-size: 50px;
+    font-weight: 500;
+    color: var(--color-text-main);
+    margin-bottom: 15px;
+  }
+
+  &__message {
+    font-size: 20px;
+    color: var(--color-text-main);
+    margin-bottom: 50px;
+  }
+
+  &__link {
+    font-size: 13px;
+    color: var(--color-primary);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
