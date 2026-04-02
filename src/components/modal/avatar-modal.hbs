@@ -1,0 +1,20 @@
+<div class="modal-backdrop" id="avatar-modal-backdrop">
+  <div class="modal-card">
+    <h2 class="modal-card__title {{#if isError}}modal-card__title--error{{/if}}">{{title}}</h2>
+    
+    <form id="avatar-upload-form" class="modal-card__form">
+      {{#if fileName}}
+        <span class="modal-card__file-name">{{fileName}}</span>
+      {{else}}
+        <label class="modal-card__upload-label" for="avatar-input">Seleccionar archivo en el ordenador</label>
+        <input type="file" id="avatar-input" name="avatar" class="modal-card__hidden-input" accept="image/*">
+      {{/if}}
+
+      {{#if errorText}}
+        <span class="modal-card__error-text">{{errorText}}</span>
+      {{/if}}
+
+      <button type="submit" class="btn btn--primary modal-card__btn">Cambiar</button>
+    </form>
+  </div>
+</div>
