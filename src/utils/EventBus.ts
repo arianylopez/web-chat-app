@@ -1,4 +1,4 @@
-export type Listener<T extends any[] = any[]> = (...args: T) => void;
+export type Listener<T extends unknown[] = unknown[]> = (...args: T) => void;
 
 export class EventBus {
   private listeners: Record<string, Listener[]> = {};
@@ -20,7 +20,7 @@ export class EventBus {
     );
   }
 
-  public emit(event: string, ...args: any[]): void {
+  public emit(event: string, ...args: unknown[]): void {
     if (!this.listeners[event]) {
       throw new Error(`No hay evento: ${event}`);
     }

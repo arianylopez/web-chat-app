@@ -57,7 +57,7 @@ let modalState = {
   errorText: null as string | null
 };
 
-function render(template: HandlebarsTemplateDelegate, context: any = {}) {
+function render(template: HandlebarsTemplateDelegate, context: Record<string, unknown> = {}) {
   if (app) {
     app.innerHTML = template(context);
     attachListeners();

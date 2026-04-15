@@ -1,0 +1,7 @@
+<div class="form__field">
+  <label class="form__label" for="{{name}}">{{label}}</label>
+  <input class="form__input" type="{{type}}" id="{{name}}" name="{{name}}" placeholder="{{placeholder}}" value="{{value}}">
+  {{#if errorText}}
+    <span class="form__error">{{errorText}}</span>
+  {{/if}}
+</div>
