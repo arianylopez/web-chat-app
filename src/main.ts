@@ -6,6 +6,8 @@ import './components/modal/modal.scss';
 import './pages/error/error.scss';     
 import Handlebars from 'handlebars';
 
+import { LoginPage } from './pages/auth/Login';
+
 import loginTemplateStr from './pages/auth/login.hbs?raw';
 import registerTemplateStr from './pages/auth/register.hbs?raw';
 import chatTemplateStr from './pages/chat/chat.hbs?raw';
@@ -61,6 +63,15 @@ function render(template: HandlebarsTemplateDelegate, context: Record<string, un
   if (app) {
     app.innerHTML = template(context);
     attachListeners();
+  }
+}
+
+function renderPage(ComponentClass: new () => any) {
+  if (app) {
+    app.innerHTML = ''; // Limpiamos la pantalla
+    const page = new ComponentClass(); // Instanciamos la página (ej. LoginPage)
+    app.appendChild(page.getContent()!); // Montamos el nodo real del DOM
+    page.dispatchComponentDidMount(); // Disparamos el ciclo de vida
   }
 }
 
@@ -151,3 +162,4 @@ function attachListeners() {
 }
 
 render(templates.login);
+renderPage(LoginPage);
